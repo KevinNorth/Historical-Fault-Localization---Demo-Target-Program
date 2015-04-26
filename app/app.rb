@@ -127,7 +127,7 @@ end
 # Command line arguments
 options = {}
 OptionParser.new do |opts|
-  opts.banner = "Usage: example.rb [options]"
+  opts.banner = "Usage: app.rb [options]"
 
   opts.on("--min", "--minimum", "Find the minimum of the list") do |min|
     options[:min] = true
