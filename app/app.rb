@@ -75,7 +75,7 @@ def findMedian(array)
 
   if sortedArray.size % 2 == 0
     index = sortedArray.size / 2
-    return (sortedArray[index + 1] + sortedArray[index]) / 2.0 # Fault - should use index - 1 and index, not index + 1 and index
+    return (sortedArray[index - 1] + sortedArray[index]) / 2.0
   else
     return sortedArray[sortedArray.size / 2]
   end
