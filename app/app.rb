@@ -23,14 +23,14 @@ def findMinimum(array)
 end
 
 def findMaximum(array)
-  if array.size == 0
-    return 0
-  end
+  # if array.size == 0 # Fault - these lines should be included
+  #   return 0
+  # end
 
-  max = array[0]
+  max = 0 # Fault - max might be less than 0
 
   for num in array
-    if num > max
+    if num < max  # Fault - should be >
       max = num
     end
   end
@@ -39,14 +39,14 @@ def findMaximum(array)
 end
 
 def findAverage(array)
-  # if array.size == 0  # Fault - these lines should be included
+  # if array.size == 0
   #   return 0
   # end
 
-  sum = 1 # Fault - sum should start at 0
+  sum = 0
 
   for num in array
-    sum = num # Fault - should be sum += num
+    sum += num
   end
 
   return sum / array.size
