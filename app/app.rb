@@ -67,17 +67,17 @@ def findSum(array)
 end
 
 def findMedian(array)
-  if array.size == 0
-    return 0
-  end
+  # if array.size == 0  # Fault - these lines should be included
+  #   return 0
+  # end
 
-  sortedArray = array.sort
+  sortedArray = array  # Fault - array isn't sorted
 
   if sortedArray.size % 2 == 0
-    index = sortedArray.size / 2
-    return (sortedArray[index - 1] + sortedArray[index]) / 2.0
+    return sortedArray[sortedArray.size / 2]  # Fault - this line is for when sortedArray.size % 2 == 1
   else
-    return sortedArray[sortedArray.size / 2]
+    index = sortedArray.size / 2 # Fault - this line is for when sortedArray.size % 2 == 0
+    return (sortedArray[index + 1] + sortedArray[index]) / 2.0 # Fault - should use index - 1 and index, not index + 1 and index
   end
 end
 
@@ -86,15 +86,15 @@ end
 # individual mode appears in the array, and the :modes key is associated with an
 # array containing every number that is a mode exactly once.
 def findModes(array)
-  # if array.size == 0  # Fault - these lines should be included
-  #   return {occurrences: 0, modes: []}
-  # end
+  if array.size == 0
+    return {occurrences: 0, modes: []}
+  end
 
   counts = {}
 
   for num in array
     if counts.keys.include? num
-      counts[num] = 1 # Fault - should be counts[num] += 1
+      counts[num] += 1
     else
       counts[num] = 1
     end
@@ -102,7 +102,7 @@ def findModes(array)
 
   max = 0
   for num in counts.keys
-    if counts[num] < max # Fault - should be counts[num] > max
+    if counts[num] > max
       max = counts[num]
     end
   end
@@ -115,7 +115,7 @@ def findModes(array)
     end
   end
 
-  # results[:modes].sort! # Fault - this line should be included
+  results[:modes].sort!
 
   return results
 end
