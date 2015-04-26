@@ -11,7 +11,7 @@ def findMinimum(array)
     return 0
   end
 
-  min = 0 #Fault - min might be greater than 0
+  min = array[0]
 
   for num in array
     if num < min
@@ -27,7 +27,7 @@ def findMaximum(array)
     return 0
   end
 
-  max = 0 # Fault - max might be less than 0
+  max = array[0]
 
   for num in array
     if num > max
@@ -74,10 +74,10 @@ def findMedian(array)
   sortedArray = sort(array)
 
   if sortedArray.size % 2 == 0
-    return sortedArray[sortedArray.size / 2]  # Fault - this line is for when sortedArray.size % 2 == 1
-  else
-    index = sortedArray.size / 2 # Fault - this line is for when sortedArray.size % 2 == 0
+    index = sortedArray.size / 2
     return (sortedArray[index + 1] + sortedArray[index]) / 2.0 # Fault - should use index - 1 and index, not index + 1 and index
+  else
+    return sortedArray[sortedArray.size / 2]
   end
 end
 
