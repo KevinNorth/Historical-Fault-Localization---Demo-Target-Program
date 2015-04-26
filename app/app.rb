@@ -53,31 +53,31 @@ def findAverage(array)
 end
 
 def findSum(array)
-  if array.size == 0
-    return 0
-  end
+  # if array.size == 0  # Fault - these lines should be included
+  #   return 0
+  # end
 
-  sum = 0
+  sum = 1 # Fault - sum sohuld start at 0
 
   for num in array
-    sum += num
+    sum = num  # Fault - should be sum += num
   end
 
   return sum
 end
 
 def findMedian(array)
-  # if array.size == 0  # Fault - these lines should be included
-  #   return 0
-  # end
+  if array.size == 0
+    return 0
+  end
 
-  sortedArray = array  # Fault - array isn't sorted
+  sortedArray = array.sort
 
   if sortedArray.size % 2 == 0
-    return sortedArray[sortedArray.size / 2]  # Fault - this line is for when sortedArray.size % 2 == 1
+    index = sortedArray.size / 2
+    return (sortedArray[index - 1] + sortedArray[index]) / 2.0
   else
-    index = sortedArray.size / 2 # Fault - this line is for when sortedArray.size % 2 == 0
-    return (sortedArray[index + 1] + sortedArray[index]) / 2.0 # Fault - should use index - 1 and index, not index + 1 and index
+    return sortedArray[sortedArray.size / 2]
   end
 end
 
