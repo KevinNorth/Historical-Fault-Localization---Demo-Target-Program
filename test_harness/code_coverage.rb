@@ -48,7 +48,7 @@ def process_test_output(test_output)
   end
 
   passed = false
-  if test_output[-7..-1] == "Passed\n"
+  if test_output[-7..-1] == "Passed\n" || test_output[-8..-1] == "Passed\r\n"
     passed = true
   end
 

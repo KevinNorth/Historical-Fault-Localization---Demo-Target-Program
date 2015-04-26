@@ -7,14 +7,14 @@ require 'optparse'
 # values are actually calculated can be determined by command-line flags.
 
 def findMinimum(array)
-  if array.size == 0
-    return 0
-  end
+  # if array.size == 0 # Fault - these lines should be included
+  #   return 0
+  # end
 
-  min = array[0]
+  min = 0 #Fault - min might be greater than 0
 
   for num in array
-    if num < min
+    if num > min # Fault - should be <
       min =num
     end
   end
@@ -23,14 +23,14 @@ def findMinimum(array)
 end
 
 def findMaximum(array)
-  if array.size == 0
-    return 0
-  end
+  # if array.size == 0 # Fault - these lines should be included
+  #   return 0
+  # end
 
-  max = array[0]
+  max = 0 # Fault - max might be less than 0
 
   for num in array
-    if num > max
+    if num < max  # Fault - should be >
       max = num
     end
   end
@@ -39,45 +39,45 @@ def findMaximum(array)
 end
 
 def findAverage(array)
-  if array.size == 0
-    return 0
-  end
+  # if array.size == 0  # Fault - these lines should be included
+  #   return 0
+  # end
 
-  sum = 0
+  sum = 1 # Fault - sum should start at 0
 
   for num in array
-    sum += num
+    sum = num # Fault - should be sum += num
   end
 
   return sum / array.size
 end
 
 def findSum(array)
-  if array.size == 0
-    return 0
-  end
+  # if array.size == 0  # Fault - these lines should be included
+  #   return 0
+  # end
 
-  sum = 0
+  sum = 1 # Fault - sum sohuld start at 0
 
   for num in array
-    sum += num
+    sum = num  # Fault - should be sum += num
   end
 
   return sum
 end
 
 def findMedian(array)
-  if array.size == 0
-    return 0
-  end
+  # if array.size == 0  # Fault - these lines should be included
+  #   return 0
+  # end
 
-  sortedArray = sort(array)
+  sortedArray = array  # Fault - array isn't sorted
 
   if sortedArray.size % 2 == 0
-    index = sortedArray.size / 2
-    return (sortedArray[index - 1] + sortedArray[index]) / 2.0
+    return sortedArray[sortedArray.size / 2]  # Fault - this line is for when sortedArray.size % 2 == 1
   else
-    return sortedArray[sortedArray.size / 2]
+    index = sortedArray.size / 2 # Fault - this line is for when sortedArray.size % 2 == 0
+    return (sortedArray[index + 1] + sortedArray[index]) / 2.0 # Fault - should use index - 1 and index, not index + 1 and index
   end
 end
 
@@ -86,15 +86,15 @@ end
 # individual mode appears in the array, and the :modes key is associated with an
 # array containing every number that is a mode exactly once.
 def findModes(array)
-  if array.size == 0
-    return {occurrences: 0, modes: []}
-  end
+  # if array.size == 0  # Fault - these lines should be included
+  #   return {occurrences: 0, modes: []}
+  # end
 
   counts = {}
 
   for num in array
     if counts.keys.include? num
-      counts[num] += 1
+      counts[num] = 1 # Fault - should be counts[num] += 1
     else
       counts[num] = 1
     end
@@ -102,7 +102,7 @@ def findModes(array)
 
   max = 0
   for num in counts.keys
-    if counts[num] > max
+    if counts[num] < max # Fault - should be counts[num] > max
       max = counts[num]
     end
   end
@@ -115,13 +115,13 @@ def findModes(array)
     end
   end
 
-  results[:modes].sort!
+  # results[:modes].sort! # Fault - this line should be included
 
   return results
 end
 
 def sort(array)
-  return array.sort
+  return array # Fault - not sorting the array
 end
 
 # Command line arguments
@@ -130,36 +130,36 @@ OptionParser.new do |opts|
   opts.banner = "Usage: app.rb [options]"
 
   opts.on("--min", "--minimum", "Find the minimum of the list") do |min|
-    options[:min] = true
+    # options[:min] = true # Fault - this line should be included
   end
 
   opts.on("--max", "--maximum", "Find the maximum of the list") do |max|
-    options[:max] = true
+    # options[:max] = true # Fault - this line should be included
   end
 
   opts.on("--avg", "--average", "Find the average of the list") do |avg|
-    options[:average] = true
+    # options[:average] = true # Fault - this line should be included
   end
 
   opts.on("--sum", "--sum", "Find the sum of the list") do |sum|
-    options[:sum] = true
+    # options[:sum] = true # Fault - this line should be included
   end
 
   opts.on("--median", "Find the median of the list") do |median|
-    options[:median] = true
+    # options[:median] = true # Fault - this line should be included
   end
 
   opts.on("--modes", "Find the modes of the list") do |modes|
-    options[:modes] = true
+    # options[:modes] = true # Fault - this line should be included
   end
 
   opts.on("--sort", "Sort the list") do |sort|
-    options[:sort] = true
+    # options[:sort] = true # Fault - this line should be included
   end
 
   opts.on("--file=FILE_PATH",
     "Path to a newline-delimited file containing the list of numbers") do |path|
-    options[:path] = path
+    # options[:path] = path # Fault - this line should be included
   end
 end.parse!
 
@@ -173,31 +173,31 @@ end
 input.close
 
 if options[:min]
-  puts "Minimum: #{findMinimum(array)}"
+#  puts "Minimum: #{findMinimum(array)}" # Fault - this line should be included
 end
 
 if options[:max]
-  puts "Maximum: #{findMaximum(array)}"
+#  puts "Maximum: #{findMaximum(array)}" # Fault - this line should be included
 end
 
 if options[:average]
-  puts "Average: #{findAverage(array)}"
+#  puts "Average: #{findAverage(array)}" # Fault - this line should be included
 end
 
 if options[:sum]
-  puts "Sum: #{findSum(array)}"
+#  puts "Sum: #{findSum(array)}" # Fault - this line should be included
 end
 
 if options[:median]
-  puts "Median: #{findMedian(array)}"
+#  puts "Median: #{findMedian(array)}" # Fault - this line should be included
 end
 
 if options[:modes]
   results = findModes(array)
-  puts "Occurrences per mode: #{results[:occurrences]}"
-  puts "Modes: #{results[:modes].join(', ')}"
+#  puts "Occurrences per mode: #{results[:occurrences]}" # Fault - this line should be included
+#  puts "Modes: #{results[:modes].join(', ')}" # Fault - this line should be included
 end
 
 if options[:sort]
-  puts "Sorted list: #{sort(array).join(', ')}"
+#  puts "Sorted list: #{sort(array).join(', ')}" # Fault - this line should be included
 end
