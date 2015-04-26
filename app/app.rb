@@ -75,7 +75,7 @@ def findMedian(array)
 
   if sortedArray.size % 2 == 0
     index = sortedArray.size / 2
-    return (sortedArray[index] + sortedArray[index + 1]) / 2.0
+    return (sortedArray[index - 1] + sortedArray[index]) / 2.0
   else
     return sortedArray[sortedArray.size / 2]
   end
@@ -114,6 +114,8 @@ def findModes(array)
       results[:modes].push num
     end
   end
+
+  results[:modes].sort!
 
   return results
 end
