@@ -130,36 +130,36 @@ OptionParser.new do |opts|
   opts.banner = "Usage: app.rb [options]"
 
   opts.on("--min", "--minimum", "Find the minimum of the list") do |min|
-    # options[:min] = true # Fault - this line should be included
+    options[:min] = true
   end
 
   opts.on("--max", "--maximum", "Find the maximum of the list") do |max|
-    # options[:max] = true # Fault - this line should be included
+    options[:max] = true
   end
 
   opts.on("--avg", "--average", "Find the average of the list") do |avg|
-    # options[:average] = true # Fault - this line should be included
+    options[:average] = true
   end
 
   opts.on("--sum", "--sum", "Find the sum of the list") do |sum|
-    # options[:sum] = true # Fault - this line should be included
+    options[:sum] = true
   end
 
   opts.on("--median", "Find the median of the list") do |median|
-    # options[:median] = true # Fault - this line should be included
+    options[:median] = true
   end
 
   opts.on("--modes", "Find the modes of the list") do |modes|
-    # options[:modes] = true # Fault - this line should be included
+    options[:modes] = true
   end
 
   opts.on("--sort", "Sort the list") do |sort|
-    # options[:sort] = true # Fault - this line should be included
+    options[:sort] = true
   end
 
   opts.on("--file=FILE_PATH",
     "Path to a newline-delimited file containing the list of numbers") do |path|
-    # options[:path] = path # Fault - this line should be included
+    options[:path] = path
   end
 end.parse!
 
@@ -173,31 +173,31 @@ end
 input.close
 
 if options[:min]
-#  puts "Minimum: #{findMinimum(array)}" # Fault - this line should be included
+  puts "Minimum: #{findMinimum(array)}"
 end
 
 if options[:max]
-#  puts "Maximum: #{findMaximum(array)}" # Fault - this line should be included
+  puts "Maximum: #{findMaximum(array)}"
 end
 
 if options[:average]
-#  puts "Average: #{findAverage(array)}" # Fault - this line should be included
+  puts "Average: #{findAverage(array)}"
 end
 
 if options[:sum]
-#  puts "Sum: #{findSum(array)}" # Fault - this line should be included
+  puts "Sum: #{findSum(array)}"
 end
 
 if options[:median]
-#  puts "Median: #{findMedian(array)}" # Fault - this line should be included
+  puts "Median: #{findMedian(array)}"
 end
 
 if options[:modes]
   results = findModes(array)
-#  puts "Occurrences per mode: #{results[:occurrences]}" # Fault - this line should be included
-#  puts "Modes: #{results[:modes].join(', ')}" # Fault - this line should be included
+  puts "Occurrences per mode: #{results[:occurrences]}"
+  puts "Modes: #{results[:modes].join(', ')}"
 end
 
 if options[:sort]
-#  puts "Sorted list: #{sort(array).join(', ')}" # Fault - this line should be included
+  puts "Sorted list: #{sort(array).join(', ')}"
 end
