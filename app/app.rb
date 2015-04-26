@@ -7,9 +7,9 @@ require 'optparse'
 # values are actually calculated can be determined by command-line flags.
 
 def findMinimum(array)
-  # if array.size == 0 # Fault - these lines should be included
-  #   return 0
-  # end
+  if array.size == 0
+    return 0
+  end
 
   min = 0 #Fault - min might be greater than 0
 
@@ -23,9 +23,9 @@ def findMinimum(array)
 end
 
 def findMaximum(array)
-  # if array.size == 0 # Fault - these lines should be included
-  #   return 0
-  # end
+  if array.size == 0
+    return 0
+  end
 
   max = 0 # Fault - max might be less than 0
 
@@ -39,9 +39,9 @@ def findMaximum(array)
 end
 
 def findAverage(array)
-  # if array.size == 0  # Fault - these lines should be included
-  #   return 0
-  # end
+  if array.size == 0
+    return 0
+  end
 
   sum = 1 # Fault - sum should start at 0
 
@@ -53,9 +53,9 @@ def findAverage(array)
 end
 
 def findSum(array)
-  # if array.size == 0  # Fault - these lines should be included
-  #   return 0
-  # end
+  if array.size == 0
+    return 0
+  end
 
   sum = 1 # Fault - sum sohuld start at 0
 
@@ -67,9 +67,9 @@ def findSum(array)
 end
 
 def findMedian(array)
-  # if array.size == 0  # Fault - these lines should be included
-  #   return 0
-  # end
+  if array.size == 0
+    return 0
+  end
 
   sortedArray = array  # Fault - array isn't sorted
 
@@ -86,9 +86,9 @@ end
 # individual mode appears in the array, and the :modes key is associated with an
 # array containing every number that is a mode exactly once.
 def findModes(array)
-  # if array.size == 0  # Fault - these lines should be included
-  #   return {occurrences: 0, modes: []}
-  # end
+  if array.size == 0
+    return {occurrences: 0, modes: []}
+  end
 
   counts = {}
 
@@ -121,7 +121,7 @@ def findModes(array)
 end
 
 def sort(array)
-  return array.sort
+  return array # Fault - not sorting the array
 end
 
 # Command line arguments
