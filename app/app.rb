@@ -138,7 +138,7 @@ OptionParser.new do |opts|
   end
 
   opts.on("--avg", "--average", "Find the average of the list") do |avg|
-    options[:avg] = true
+    options[:average] = true
   end
 
   opts.on("--sum", "--sum", "Find the sum of the list") do |sum|
