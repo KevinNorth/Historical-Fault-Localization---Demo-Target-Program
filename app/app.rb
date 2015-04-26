@@ -14,7 +14,7 @@ def findMinimum(array)
   min = 0 #Fault - min might be greater than 0
 
   for num in array
-    if num > min # Fault - should be <
+    if num < min
       min =num
     end
   end
@@ -30,7 +30,7 @@ def findMaximum(array)
   max = 0 # Fault - max might be less than 0
 
   for num in array
-    if num < max  # Fault - should be >
+    if num > max
       max = num
     end
   end
@@ -43,10 +43,10 @@ def findAverage(array)
     return 0
   end
 
-  sum = 1 # Fault - sum should start at 0
+  sum = 0
 
   for num in array
-    sum = num # Fault - should be sum += num
+    sum += num
   end
 
   return sum / array.size
@@ -57,10 +57,10 @@ def findSum(array)
     return 0
   end
 
-  sum = 1 # Fault - sum sohuld start at 0
+  sum = 0
 
   for num in array
-    sum = num  # Fault - should be sum += num
+    sum += num
   end
 
   return sum
@@ -71,7 +71,7 @@ def findMedian(array)
     return 0
   end
 
-  sortedArray = array  # Fault - array isn't sorted
+  sortedArray = sort(array)
 
   if sortedArray.size % 2 == 0
     return sortedArray[sortedArray.size / 2]  # Fault - this line is for when sortedArray.size % 2 == 1
@@ -94,7 +94,7 @@ def findModes(array)
 
   for num in array
     if counts.keys.include? num
-      counts[num] = 1 # Fault - should be counts[num] += 1
+      counts[num] += 1
     else
       counts[num] = 1
     end
@@ -102,7 +102,7 @@ def findModes(array)
 
   max = 0
   for num in counts.keys
-    if counts[num] < max # Fault - should be counts[num] > max
+    if counts[num] > max
       max = counts[num]
     end
   end
@@ -115,13 +115,13 @@ def findModes(array)
     end
   end
 
-  # results[:modes].sort! # Fault - this line should be included
+  results[:modes].sort!
 
   return results
 end
 
 def sort(array)
-  return array # Fault - not sorting the array
+  return array.sort
 end
 
 # Command line arguments
