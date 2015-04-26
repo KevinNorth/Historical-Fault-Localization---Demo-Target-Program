@@ -7,14 +7,14 @@ require 'optparse'
 # values are actually calculated can be determined by command-line flags.
 
 def findMinimum(array)
-  if array.size == 0
-    return 0
-  end
+  # if array.size == 0 # Fault - these lines should be included
+  #   return 0
+  # end
 
-  min = array[0]
+  min = 0 #Fault - min might be greater than 0
 
   for num in array
-    if num < min
+    if num > min # Fault - should be <
       min =num
     end
   end
@@ -23,14 +23,14 @@ def findMinimum(array)
 end
 
 def findMaximum(array)
-  # if array.size == 0 # Fault - these lines should be included
-  #   return 0
-  # end
+  if array.size == 0
+    return 0
+  end
 
-  max = 0 # Fault - max might be less than 0
+  max = array[0]
 
   for num in array
-    if num < max  # Fault - should be >
+    if num > max
       max = num
     end
   end
