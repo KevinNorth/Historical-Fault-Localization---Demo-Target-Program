@@ -86,15 +86,15 @@ end
 # individual mode appears in the array, and the :modes key is associated with an
 # array containing every number that is a mode exactly once.
 def findModes(array)
-  if array.size == 0
-    return {occurrences: 0, modes: []}
-  end
+  # if array.size == 0  # Fault - these lines should be included
+  #   return {occurrences: 0, modes: []}
+  # end
 
   counts = {}
 
   for num in array
     if counts.keys.include? num
-      counts[num] += 1
+      counts[num] = 1 # Fault - should be counts[num] += 1
     else
       counts[num] = 1
     end
@@ -102,7 +102,7 @@ def findModes(array)
 
   max = 0
   for num in counts.keys
-    if counts[num] > max
+    if counts[num] < max # Fault - should be counts[num] > max
       max = counts[num]
     end
   end
@@ -115,13 +115,13 @@ def findModes(array)
     end
   end
 
-  results[:modes].sort!
+  # results[:modes].sort! # Fault - this line should be included
 
   return results
 end
 
 def sort(array)
-  return array # Fault - not sorting the array
+  return array.sort
 end
 
 # Command line arguments
